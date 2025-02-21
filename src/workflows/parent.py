@@ -20,14 +20,14 @@ class ParentWorkflow:
                 result = await workflow.child_start(
                     ChildWorkflow,
                     input=ChildInput(name="world"),
-                    workflow_id=f"{parent_workflow_id}-child-start",
+                    workflow_id=f"1-child-start",
                     execution_timeout=timedelta(seconds=30)
                 )
                 log.info("Start ChildWorkflow and wait for result")
                 result = await workflow.child_execute(
                     ChildWorkflow,
                     input=ChildInput(name="world"),
-                    workflow_id=f"{parent_workflow_id}-child-execute",
+                    workflow_id=f"2-child-execute",
                     execution_timeout=timedelta(seconds=30)
                 )
             except Exception as e:
