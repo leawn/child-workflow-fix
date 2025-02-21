@@ -9,12 +9,9 @@ from src.workflows.parent import ParentWorkflow, ParentInput, ParentOutput
 from src.workflows.child import ChildWorkflow, ChildInput, ChildOutput
 
 async def main():
-    engine_id = os.getenv("RESTACK_ENGINE_ID")
-    task_queue = f"{engine_id}-restack"
     await client.start_service(
         workflows= [ParentWorkflow, ChildWorkflow],
         functions= [welcome],
-        task_queue=task_queue
     )
 
 def run_services():
