@@ -22,7 +22,7 @@ class ParentWorkflow:
                     input=ChildInput(name="world"),
                     workflow_id=f"{parent_workflow_id}-child-start",
                     execution_timeout=timedelta(seconds=30),
-                    task_queue="restack"
+                    task_queue="pimcore1"
                 )
                 log.info("Start ChildWorkflow and wait for result")
                 result = await workflow.child_execute(
@@ -30,7 +30,7 @@ class ParentWorkflow:
                     input=ChildInput(name="world"),
                     workflow_id=f"{parent_workflow_id}-child-execute",
                     execution_timeout=timedelta(seconds=30),
-                    task_queue="restack"
+                    task_queue="pimcore1"
                 )
             except Exception as e:
                 log.info("ChildWorkflow failed", error=e)

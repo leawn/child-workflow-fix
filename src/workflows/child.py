@@ -16,6 +16,6 @@ class ChildWorkflow:
     @workflow.run
     async def run(self, input: ChildInput) -> ChildOutput:
         log.info("ChildWorkflow started")
-        result = await workflow.step(welcome, input=input.name, start_to_close_timeout=timedelta(seconds=120), task_queue="restack")
+        result = await workflow.step(welcome, input=input.name, start_to_close_timeout=timedelta(seconds=120), task_queue="pimcore1")
         log.info("ChildWorkflow completed", result=result)
         return ChildOutput(result=result)
