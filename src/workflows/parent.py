@@ -16,7 +16,7 @@ class ParentWorkflow:
             # use the parent run id to create child workflow ids
             parent_workflow_id = workflow_info().workflow_id
             try:
-                log.info("Start ChildWorkflow and dont wait for result")
+                log.debug("Start ChildWorkflow and dont wait for result")
                 result = await workflow.child_start(
                     ChildWorkflow,
                     input=ChildInput(name="world"),
