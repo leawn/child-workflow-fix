@@ -21,14 +21,16 @@ class ParentWorkflow:
                     ChildWorkflow,
                     input=ChildInput(name="world"),
                     workflow_id=f"{parent_workflow_id}-child-start",
-                    execution_timeout=timedelta(seconds=30)
+                    execution_timeout=timedelta(seconds=30),
+                    task_queue="restack"
                 )
                 log.info("Start ChildWorkflow and wait for result")
                 result = await workflow.child_execute(
                     ChildWorkflow,
                     input=ChildInput(name="world"),
                     workflow_id=f"{parent_workflow_id}-child-execute",
-                    execution_timeout=timedelta(seconds=30)
+                    execution_timeout=timedelta(seconds=30),
+                    task_queue="restack"
                 )
             except Exception as e:
                 log.info("ChildWorkflow failed", error=e)
