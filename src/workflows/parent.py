@@ -16,14 +16,14 @@ class ParentWorkflow:
             # use the parent run id to create child workflow ids
             parent_workflow_id = workflow_info().workflow_id
             try:
-                log.info("Start ChildWorkflow and dont wait for result")
-                result = await workflow.child_start(
-                    ChildWorkflow,
-                    input=ChildInput(name="world"),
-                    workflow_id=f"{parent_workflow_id}-child-start",
-                    execution_timeout=timedelta(seconds=30),
-                    task_queue="pimcore1"
-                )
+                # log.info("Start ChildWorkflow and dont wait for result")
+                # result = await workflow.child_start(
+                #     ChildWorkflow,
+                #     input=ChildInput(name="world"),
+                #     workflow_id=f"{parent_workflow_id}-child-start",
+                #     execution_timeout=timedelta(seconds=30),
+                #     task_queue="pimcore1"
+                # )
                 log.info("Start ChildWorkflow and wait for result")
                 result = await workflow.child_execute(
                     ChildWorkflow,
